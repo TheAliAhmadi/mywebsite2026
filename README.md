@@ -1,64 +1,91 @@
-# Astro Starter Kit: Blog
+# Ali Ahmadi - Personal Academic Website
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
+A clean, modern academic website built with [Astro](https://astro.build) and deployed on [Cloudflare Pages](https://pages.cloudflare.com).
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+## 🚀 Quick Start
 
-<!-- dash-content-start -->
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Built-in Observability logging
-
-<!-- dash-content-end -->
-
-## Getting Started
-
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+### Installation
 
 ```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/astro-blog-starter-template
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-A live public deployment of this template is available at [https://astro-blog-starter-template.templates.workers.dev](https://astro-blog-starter-template.templates.workers.dev)
+The site will be available at `http://localhost:4321`
 
-## 🚀 Project Structure
+### Building for Production
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+```bash
+npm run build
+```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Deploy to Cloudflare
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+```bash
+npm run deploy
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## �� Project Structure
 
-## 🧞 Commands
+```
+src/
+├── components/
+│   ├── BaseHead.astro    # HTML <head> with meta tags
+│   ├── Header.astro      # Navigation header
+│   └── Footer.astro      # Site footer
+├── pages/
+│   ├── index.astro       # Home page
+│   ├── research.astro    # Research publications
+│   ├── teaching.astro    # Teaching experience
+│   ├── cv.astro          # CV viewer/download
+│   └── contact.astro     # Contact form
+├── styles/
+│   └── global.css        # Global styles
+└── consts.ts             # Site constants
+public/
+├── profile.jpg           # Profile photo (add your own)
+└── AliAhmadi_CV.pdf      # CV PDF file (add your own)
+```
 
-All commands are run from the root of the project, from a terminal:
+## ⚙️ Configuration
 
-| Command                           | Action                                           |
-| :-------------------------------- | :----------------------------------------------- |
-| `npm install`                     | Installs dependencies                            |
-| `npm run dev`                     | Starts local dev server at `localhost:4321`      |
-| `npm run build`                   | Build your production site to `./dist/`          |
-| `npm run preview`                 | Preview your build locally, before deploying     |
-| `npm run astro ...`               | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`         | Get help using the Astro CLI                     |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
-| `npm wrangler tail`               | View real-time logs for all Workers              |
+Edit `src/consts.ts` to update:
+- Site title and description
+- Email address
+- Social media links
+- Office location
 
-## 👀 Want to learn more?
+## 📝 Adding Your Files
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. **Profile Photo**: Add your photo as `public/profile.jpg`
+2. **CV PDF**: Add your CV as `public/AliAhmadi_CV.pdf`
 
-## Credit
+## 🎨 Customization
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+### Colors
+Edit the CSS variables in `src/styles/global.css`:
+```css
+:root {
+  --primary: #0067FF;
+  --primary-hover: #005EE9;
+  /* ... other variables */
+}
+```
+
+### Contact Form
+The contact form uses [Formspree](https://formspree.io). Update the form action in `src/pages/contact.astro` with your Formspree endpoint.
+
+## 📄 License
+
+MIT License - feel free to use this as a template for your own academic website.
+
+---
+
+Built with ❤️ using Astro

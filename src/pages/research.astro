@@ -1,0 +1,317 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+
+const pageTitle = `Research | ${SITE_TITLE}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={pageTitle} description="Research publications and manuscripts by Ali Ahmadi on competitive dynamics, competitive surprise, and positioning threats." />
+  </head>
+  <body>
+    <Header />
+    
+    <main>
+      <!-- Page Header with Hero Background -->
+      <section class="page-header">
+        <div class="page-header-bg">
+          <img src="/hero-bg.jpg" alt="" class="page-header-bg-image" />
+          <div class="page-header-overlay"></div>
+        </div>
+        <div class="container">
+          <h1>Research</h1>
+          <p class="page-intro">My research explores how organizations perceive and respond to competitive dynamics, with a focus on competitive surprise and positioning threats.</p>
+        </div>
+      </section>
+
+      <!-- Under Review -->
+      <section class="research-section section">
+        <div class="container">
+          <h2>Under Review</h2>
+          <div class="papers-list">
+            <article class="paper-card">
+              <div class="paper-status">
+                <span class="status-badge published">Accepted</span>
+                <span class="target-journal">Journal of Business Research</span>
+              </div>
+              <h3>Responding to Positioning Threats</h3>
+              <p class="paper-authors">Goudarzi, K; <strong>Ahmadi, A</strong>; Andrevski, G</p>
+              <p class="paper-abstract">This paper explores how firms respond to competitors encroaching on their market position, finding that they aggressively defend their turf against moderate threats but shift to unique, less intense strategies when the rivalry becomes extreme.</p>
+            </article>
+
+            <article class="paper-card">
+              <div class="paper-status">
+                <span class="status-badge review">Under Review</span>
+                <span class="target-journal">Academy of Management Review</span>
+              </div>
+              <h3>Competitive Surprise: A Theoretical Framework</h3>
+              <p class="paper-authors">Andrevski, G; <strong>Ahmadi, A</strong>; Miller, D</p>
+              <p class="paper-abstract">Developing a comprehensive theoretical framework for understanding how firms identify, process, and respond to unexpected rival moves.</p>
+            </article>
+
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Manuscripts in Progress -->
+      <section class="research-section section alt-bg">
+        <div class="container">
+          <h2>Manuscripts in Progress</h2>
+          <div class="papers-list">
+            <article class="paper-card">
+              <div class="paper-status">
+                <span class="status-badge progress">In Progress</span>
+                <span class="target-journal">Target: Academy of Management Journal</span>
+              </div>
+              <h3>Competitive Surprise: Empirical Analysis</h3>
+              <p class="paper-authors"><strong>Ahmadi, A.</strong>, Andrevski, G; Miller, D</p>
+              <p class="paper-abstract">Empirical investigation of competitive surprise dynamics in large-scale industry settings.</p>
+            </article>
+
+            <article class="paper-card">
+              <div class="paper-status">
+                <span class="status-badge progress">In Progress</span>
+                <span class="target-journal">Target: Journal of Management Studies</span>
+              </div>
+              <h3>Bodies at Work</h3>
+              <p class="paper-authors">Pimentel, E; <strong>Ahmadi, A</strong>; Belhadjali, S; Ricci, L</p>
+              <p class="paper-abstract">Exploring embodied cognition and physical presence in organizational strategy-making.</p>
+            </article>
+
+            <article class="paper-card">
+              <div class="paper-status">
+                <span class="status-badge progress">In Progress</span>
+                <span class="target-journal">Target: Academy of Management Journal</span>
+              </div>
+              <h3>Competitive Surprise: A Multiple Case Study</h3>
+              <p class="paper-authors"><strong>Ahmadi, A</strong>; Andrevski, G; Miller, D</p>
+              <p class="paper-abstract">In-depth qualitative analysis of how firms experience and respond to competitive surprise across multiple industry contexts.</p>
+            </article>
+
+            <article class="paper-card">
+              <div class="paper-status">
+                <span class="status-badge progress">In Progress</span>
+                <span class="target-journal">Target: Journal of Management</span>
+              </div>
+              <h3>M&A Rationale Clarity</h3>
+              <p class="paper-authors"><strong>Ahmadi, A</strong>; Goudarzi, K.</p>
+              <p class="paper-abstract">Investigating how clarity of strategic rationale in M&A announcements affects stakeholder responses and deal outcomes.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other Publications -->
+      <section class="research-section section">
+        <div class="container">
+          <h2>Other Publications</h2>
+          <div class="papers-list">
+            <article class="paper-card published">
+              <div class="paper-status">
+                <span class="status-badge published">Published</span>
+                <span class="target-journal">Routledge (2022)</span>
+              </div>
+              <h3>Dynamic Capabilities and Innovation</h3>
+              <p class="paper-authors"><strong>Ahmadi, A.</strong> & Arndt, F.</p>
+              <p class="paper-abstract">Book chapter published in R. G. Renu Agarwal, Eric Patterson, Sancheeta Pugalia (Ed.), Innovation.</p>
+            </article>
+
+            <article class="paper-card published">
+              <div class="paper-status">
+                <span class="status-badge published">Published</span>
+                <span class="target-journal">Book Chapter (2022)</span>
+              </div>
+              <h3>Team Performance and the Development of Iranian Digital Start-ups: The Mediating Role of Employee Voice</h3>
+              <p class="paper-authors">Hosseini, E., Tajpour, M., Salamzadeh, A., & <strong>Ahmadi, A.</strong></p>
+              <p class="paper-abstract">Book chapter published in Managing Human Resources in SMEs and Start-ups: International Challenges and Solutions (pp. 109-140).</p>
+            </article>
+
+            <article class="paper-card published">
+              <div class="paper-status">
+                <span class="status-badge published">Published</span>
+                <span class="target-journal">Springer International Publishing</span>
+              </div>
+              <h3>Arts Entrepreneurs in an Emerging Economy</h3>
+              <p class="paper-authors">Toghraee, M. T., <strong>Ahmadi, A.</strong>, & Salamzadeh, A.</p>
+              <p class="paper-abstract">Book chapter published in Artisan and Handicraft Entrepreneurs: Past, Present, and Future (pp. 137-147). Cham: Springer International Publishing.</p>
+            </article>
+
+            <article class="paper-card published">
+              <div class="paper-status">
+                <span class="status-badge published">Published</span>
+                <span class="target-journal">Book Chapter (2022)</span>
+              </div>
+              <h3>The Context for Business in Iraq</h3>
+              <p class="paper-authors">Salamzadeh, A., <strong>Ahmadi, A.</strong>, & Safar Kamel, A.</p>
+              <p class="paper-abstract">Book chapter published in Understanding Contexts of Business in Western Asia: Land of Bazaars and High-Tech Booms, 331-345.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-header {
+    position: relative;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .page-header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .page-header-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .page-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(248, 250, 252, 0.82) 50%,
+      rgba(226, 232, 240, 0.78) 100%
+    );
+  }
+
+  .page-header .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-intro {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .research-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+  }
+
+  .alt-bg {
+    background: var(--background);
+  }
+
+  .papers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .paper-card {
+    background: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .alt-bg .paper-card {
+    background: var(--white);
+  }
+
+  .paper-card:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .paper-card.published {
+    border-left-color: #10b981;
+  }
+
+  .paper-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  .status-badge.review {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .status-badge.progress {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  .status-badge.published {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .target-journal {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .paper-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .paper-authors {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .paper-abstract {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,904 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+
+const pageTitle = `Teaching | ${SITE_TITLE}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={pageTitle} description="Teaching experience and educational innovations by Ali Ahmadi, including strategic management courses and AI-powered teaching methods." />
+  </head>
+  <body>
+    <Header />
+    
+    <main>
+      <!-- Page Header with Hero Background -->
+      <section class="page-header">
+        <div class="page-header-bg">
+          <img src="/hero-bg.jpg" alt="" class="page-header-bg-image" />
+          <div class="page-header-overlay"></div>
+        </div>
+        <div class="container">
+          <h1>Teaching</h1>
+          <p class="page-intro">I am passionate about innovative teaching that integrates AI-driven simulations, real-world case studies, and live industry challenges.</p>
+        </div>
+      </section>
+
+      <!-- Live Cases Showcase -->
+      <section class="livecases-showcase section">
+        <div class="container">
+          <div class="livecases-content">
+            <div class="livecases-text">
+              <span class="livecases-badge">Real-World Learning</span>
+              <h2>Live Industry Challenges</h2>
+              <p>I integrate live cases from <strong>livecases.org</strong> into my teaching, connecting students directly with real organizations facing genuine strategic challenges. Students work on actual business problems, presenting their solutions to company executives.</p>
+              <a href="https://livecases.org" target="_blank" rel="noopener" class="btn-primary livecases-btn">
+                <span>Visit LiveCases.org</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+            <div class="livecases-visual">
+              <div class="livecases-card">
+                <div class="livecases-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <h4>Partner Companies</h4>
+                <p>Real organizations bring their strategic challenges</p>
+              </div>
+              <div class="livecases-card">
+                <div class="livecases-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h4>Student Teams</h4>
+                <p>Collaborative problem-solving on live cases</p>
+              </div>
+              <div class="livecases-card">
+                <div class="livecases-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                </div>
+                <h4>Executive Feedback</h4>
+                <p>Present solutions to company leaders</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Instructor of Record -->
+      <section class="teaching-section section">
+        <div class="container">
+          <h2>Instructor of Record</h2>
+          <div class="course-highlight">
+            <div class="course-header">
+              <h3>COMM401: Strategic Management</h3>
+              <span class="course-term">Fall 2024 & 2025</span>
+            </div>
+            <p class="course-description">A capstone course in strategic management designed to integrate students' business education and prepare them for real-world strategic decision-making.</p>
+            
+            <div class="course-features">
+              <div class="feature">
+                <span class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </span>
+                <div>
+                  <h4>Capsim Simulation</h4>
+                  <p>AI-powered business simulation where teams compete in realistic market environments</p>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </span>
+                <div>
+                  <h4>Live Cases</h4>
+                  <p>Real-world industry challenges from partner organizations through <a href="https://livecases.org" target="_blank" rel="noopener">livecases.org</a></p>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                </span>
+                <div>
+                  <h4>Executive Speakers</h4>
+                  <p>Guest lectures from industry executives sharing practical strategic insights</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-stats">
+              <div class="stat-card">
+                <span class="stat-number">6.23/7</span>
+                <span class="stat-label">Teaching Evaluation</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">85</span>
+                <span class="stat-label">Students</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">7</span>
+                <span class="stat-label">AI Case Studies</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">8</span>
+                <span class="stat-label">AI Mini-Activities</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teaching Assistant Experience -->
+      <section class="teaching-section section alt-bg">
+        <div class="container">
+          <h2>Teaching Assistant Experience</h2>
+          <div class="ta-grid">
+            <div class="ta-card">
+              <h4>Strategic Management (MBA)</h4>
+              <p>Smith School of Business</p>
+            </div>
+            <div class="ta-card">
+              <h4>Corporate and Business Strategy</h4>
+              <p>Smith School of Business</p>
+            </div>
+            <div class="ta-card">
+              <h4>Business for Good</h4>
+              <p>Smith School of Business</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI in Teaching -->
+      <section class="teaching-section section">
+        <div class="container">
+          <h2>AI-Enhanced Teaching Resources</h2>
+          <p class="section-intro">I develop AI-integrated teaching materials that help students understand strategic management concepts through hands-on application.</p>
+          
+          <div class="resources-grid">
+            <div class="resource-card">
+              <div class="resource-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <h3>AI Case Studies</h3>
+              </div>
+              <p>Seven comprehensive case studies exploring how AI transforms strategic decision-making across industries.</p>
+              <ul class="resource-list">
+                <li>AI-driven market analysis</li>
+                <li>Competitive intelligence automation</li>
+                <li>Strategic scenario planning</li>
+                <li>Digital transformation strategies</li>
+              </ul>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <h3>AI Mini-Activities</h3>
+              </div>
+              <p>Eight interactive exercises designed to give students hands-on experience with AI tools in strategic contexts.</p>
+              <ul class="resource-list">
+                <li>Prompt engineering for strategy</li>
+                <li>AI-assisted competitor analysis</li>
+                <li>Automated SWOT generation</li>
+                <li>Strategic decision support systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coding with AI Workshop -->
+      <section class="workshop-section section">
+        <div class="container">
+          <div class="workshop-content">
+            <div class="workshop-badge">Workshop</div>
+            <h2>Coding with AI</h2>
+            <p class="workshop-description">A hands-on workshop designed for students and professionals with <strong>no coding background</strong>. Learn how to leverage AI assistants like ChatGPT and Claude to write, debug, and deploy code—even if you've never programmed before.</p>
+            <div class="workshop-features">
+              <div class="workshop-feature">
+                <span class="feature-check">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span>No prior coding experience required</span>
+              </div>
+              <div class="workshop-feature">
+                <span class="feature-check">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span>Build real projects with AI assistance</span>
+              </div>
+              <div class="workshop-feature">
+                <span class="feature-check">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span>Learn effective AI prompting techniques</span>
+              </div>
+              <div class="workshop-feature">
+                <span class="feature-check">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span>Practical skills for the AI-enhanced workplace</span>
+              </div>
+            </div>
+            <a href="/CodingWithAI_Workshop.pdf" download class="btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download Workshop Slides (PDF)</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Carousel -->
+      <section class="testimonials-section section">
+        <div class="container">
+          <h2>Student Feedback</h2>
+          <p class="section-intro">What students say about my courses</p>
+        </div>
+        <div class="carousel-wrapper">
+          <div class="carousel-track">
+            <!-- First set of testimonials -->
+            <blockquote class="testimonial-card">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+                </svg>
+              </div>
+              <p>"As I look back on the three-month journey of learning, to be honest, Initially, I did not anticipate that this required Commerce course would provide me with such a memorable and rewarding experience."</p>
+              <cite>
+                <span class="cite-line"></span>
+                COMM401 Student, Fall 2024
+              </cite>
+            </blockquote>
+            <blockquote class="testimonial-card">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+                </svg>
+              </div>
+              <p>"I found great value in our in-class discussions and mini-GPT exercises. The mini GPT exercises taught me the power of artificial intelligence and how generative AI can be utilized in decision-making and learning new concepts."</p>
+              <cite>
+                <span class="cite-line"></span>
+                COMM401 Student, Fall 2024
+              </cite>
+            </blockquote>
+            <blockquote class="testimonial-card">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+                </svg>
+              </div>
+              <p>"The ChatGPT exercises were a practical way to experiment with these frameworks, reinforcing their application and relevance."</p>
+              <cite>
+                <span class="cite-line"></span>
+                COMM401 Student, Fall 2024
+              </cite>
+            </blockquote>
+            <blockquote class="testimonial-card">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+                </svg>
+              </div>
+              <p>"I deeply appreciated the integration of GPT into the course curriculum and content . To me , it represents the future—our generation ‘ s equivalent of the Internet and its revolutionary impact on how we gather and share information."</p>
+              <cite>
+                <span class="cite-line"></span>
+                COMM401 Student, Fall 2024
+              </cite>
+            </blockquote>
+            <blockquote class="testimonial-card">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+                </svg>
+              </div>
+              <p>"This course showed me new ways to leverage my interest in data analytics and AI to create impactful business solutions and turn raw data into actionable insights through the many course visualization frameworks"</p>
+              <cite>
+                <span class="cite-line"></span>
+                COMM401 Student, Fall 2024
+              </cite>
+            </blockquote>
+            <!-- Duplicate set for seamless loop -->
+            <blockquote class="testimonial-card">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+                </svg>
+              </div>
+              <p>"I assumed Business and Corporate Strategy would follow the pattern of other Commerce courses: introducing strategy frameworks and applying them in hypothetical or simplified scenarios. However, I was surprised by the emphasis on practical, real-world applications. The use of GPT-based assignments, case studies, and AI tools brought a modern and dynamic element to the course, making the material feel relevant."</p>
+              <cite>
+                <span class="cite-line"></span>
+                COMM401 Student, Fall 2024
+              </cite>
+            </blockquote>
+            <blockquote class="testimonial-card">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+                </svg>
+              </div>
+              <p>"The live cases gave us experience that no textbook could provide. Working on real company challenges was the highlight of my undergraduate education."</p>
+              <cite>
+                <span class="cite-line"></span>
+                COMM401 Student, Fall 2024
+              </cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-header {
+    position: relative;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .page-header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .page-header-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .page-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(248, 250, 252, 0.82) 50%,
+      rgba(226, 232, 240, 0.78) 100%
+    );
+  }
+
+  .page-header .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-intro {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Live Cases Showcase */
+  .livecases-showcase {
+    background: linear-gradient(180deg, #0d104a 0%, #1a1d5e 100%);
+    padding: 5rem 0;
+  }
+
+  .livecases-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .livecases-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .livecases-text h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    padding: 0;
+  }
+
+  .livecases-text p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .livecases-text strong {
+    color: var(--white);
+  }
+
+  .livecases-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .livecases-btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .livecases-btn:hover svg {
+    transform: translate(3px, -3px);
+  }
+
+  .livecases-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .livecases-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .livecases-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(8px);
+  }
+
+  .livecases-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    flex-shrink: 0;
+    color: var(--primary);
+  }
+
+  .livecases-icon svg {
+    color: #60a5fa;
+  }
+
+  .livecases-card h4 {
+    color: var(--white);
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .livecases-card p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .livecases-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .teaching-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+  }
+
+  .section-intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+
+  .alt-bg {
+    background: var(--background);
+  }
+
+  /* Course Highlight */
+  .course-highlight {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+
+  .course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .course-header h3 {
+    font-size: 1.75rem;
+    margin: 0;
+  }
+
+  .course-term {
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .course-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .course-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-light);
+    border-radius: 12px;
+    flex-shrink: 0;
+    color: var(--primary);
+  }
+
+  .feature h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .feature p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .feature a {
+    color: var(--primary);
+  }
+
+  .course-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 1rem;
+    background: var(--background);
+    border-radius: var(--radius);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: var(--font-heading);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  /* TA Grid */
+  .ta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .ta-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 3px solid var(--primary);
+  }
+
+  .ta-card h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .ta-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  /* Resources Grid */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .resource-card {
+    background: var(--background);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .resource-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .resource-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .resource-header svg {
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .resource-header h3 {
+    margin: 0;
+  }
+
+  .resource-card > p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .resource-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .resource-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+  }
+
+  /* Workshop Section */
+  .workshop-section {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 5rem 0;
+  }
+
+  .workshop-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .workshop-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .workshop-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    padding: 0;
+    display: block;
+  }
+
+  .workshop-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .workshop-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .workshop-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white);
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .feature-check {
+    color: #10b981;
+    font-weight: 700;
+  }
+
+  /* Testimonials Carousel */
+  .testimonials-section {
+    background: linear-gradient(180deg, var(--gray-light) 0%, #E8EEF4 100%);
+    overflow: hidden;
+    padding-bottom: 4rem;
+  }
+
+  .testimonials-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+  }
+
+  .testimonials-section .section-intro {
+    margin-bottom: 3rem;
+  }
+
+  .carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 40s linear infinite;
+    width: max-content;
+  }
+
+  .carousel-wrapper:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-400px * 5 - 2rem * 5));
+    }
+  }
+
+  .testimonial-card {
+    flex-shrink: 0;
+    width: 400px;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin: 0;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .quote-icon {
+    color: var(--primary);
+    opacity: 0.15;
+    margin-bottom: 1rem;
+  }
+
+  .quote-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial-card p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-card cite {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .cite-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-card {
+      width: 320px;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-320px * 5 - 2rem * 5));
+      }
+    }
+  }
+</style>
