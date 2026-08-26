@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
-import GoldRule from '../components/GoldRule.astro';
 import SectionEyebrow from '../components/SectionEyebrow.astro';
 import OutlineButton from '../components/OutlineButton.astro';
 import TeachingFeatureCard from '../components/TeachingFeatureCard.astro';
@@ -160,13 +159,6 @@ import { SITE_TITLE } from '../consts';
   </section>
 
   <LiveCasesPanel variant="teaching" />
-
-  <section class="closing">
-    <div class="container">
-      <blockquote>The best classrooms prepare students not just for exams, but for opportunities.</blockquote>
-      <GoldRule />
-    </div>
-  </section>
 </Layout>
 
 <script>
@@ -439,24 +431,6 @@ import { SITE_TITLE } from '../consts';
 
   .dots :global(.dot.active) {
     background: var(--gold);
-  }
-
-  .closing {
-    padding: 0 0 4.5rem;
-    text-align: center;
-  }
-
-  .closing blockquote {
-    max-width: 36rem;
-    margin: 0 auto 1rem;
-    color: var(--navy);
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    font-style: italic;
-  }
-
-  .closing :global(.gold-rule) {
-    margin-inline: auto;
   }
 
   @media (max-width: 1024px) {
