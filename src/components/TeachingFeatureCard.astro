@@ -1,0 +1,76 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  href: string;
+  icon: 'book' | 'users' | 'spark' | 'quote';
+  title: string;
+  description: string;
+}
+
+const { href, icon, title, description } = Astro.props;
+---
+
+<a class="feature-card" href={href}>
+  <span class="icon-wrap">
+    <Icon name={icon} size={24} />
+  </span>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="arrow" aria-hidden="true">
+    <Icon name="arrow" size={16} />
+  </span>
+</a>
+
+<style>
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem 1.35rem 1.2rem;
+    color: inherit;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .icon-wrap {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.1rem;
+    color: var(--gold);
+  }
+
+  h3 {
+    margin: 0 0 0.55rem;
+    font-size: 1.35rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .arrow {
+    margin-top: auto;
+    padding-top: 1.15rem;
+    color: var(--gold);
+    transition: transform var(--ease);
+  }
+
+  .feature-card:hover .arrow {
+    transform: translateX(4px);
+  }
+</style>

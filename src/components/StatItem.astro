@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  icon: 'users' | 'star' | 'book';
+  value: string;
+  label: string;
+}
+
+const { icon, value, label } = Astro.props;
+---
+
+<div class="stat-item">
+  <span class="stat-icon">
+    <Icon name={icon} size={22} />
+  </span>
+  <p class="value">{value}</p>
+  <p class="label">{label}</p>
+</div>
+
+<style>
+  .stat-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 0.7rem;
+    align-items: center;
+  }
+
+  .stat-icon {
+    grid-row: 1 / span 2;
+    color: var(--gold);
+  }
+
+  .value {
+    margin: 0;
+    color: var(--navy);
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .label {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+</style>

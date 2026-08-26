@@ -1,0 +1,17 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label } = Astro.props;
+---
+
+{
+  label ? (
+    <p class="eyebrow">{label}</p>
+  ) : (
+    <p class="eyebrow">
+      <slot />
+    </p>
+  )
+}

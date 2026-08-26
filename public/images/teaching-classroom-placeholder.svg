@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder for classroom teaching photograph</title>
+  <desc id="desc">Replace this file with a photograph of Ali Ahmadi teaching or presenting in a classroom. Path: public/images/teaching-classroom-placeholder.svg</desc>
+  <rect width="960" height="720" fill="#F4F0E6"/>
+  <rect x="0" y="0" width="960" height="720" fill="url(#wash)" />
+  <defs>
+    <radialGradient id="wash" cx="42%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#E7E2D4"/>
+      <stop offset="100%" stop-color="#F4F0E6"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="#071F46" stroke-opacity="0.14" stroke-width="1.25">
+    <circle cx="430" cy="300" r="70"/>
+    <circle cx="430" cy="300" r="120"/>
+    <circle cx="430" cy="300" r="175"/>
+    <circle cx="430" cy="300" r="235"/>
+    <circle cx="430" cy="300" r="300"/>
+  </g>
+  <circle cx="430" cy="300" r="7" fill="#071F46" fill-opacity="0.35"/>
+  <g fill="none" stroke="#C58B2A" stroke-opacity="0.45" stroke-width="1.4" stroke-dasharray="2 7">
+    <path d="M430 300 C 560 292, 640 220, 760 210"/>
+  </g>
+  <circle cx="760" cy="210" r="6" fill="#C58B2A" fill-opacity="0.7"/>
+  <circle cx="690" cy="390" r="5" fill="#071F46" fill-opacity="0.28"/>
+  <circle cx="820" cy="340" r="4" fill="#071F46" fill-opacity="0.2"/>
+  <circle cx="240" cy="470" r="5" fill="#C58B2A" fill-opacity="0.35"/>
+  <text x="480" y="640" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#071F46" fill-opacity="0.55">Replace with a classroom teaching photograph</text>
+</svg>

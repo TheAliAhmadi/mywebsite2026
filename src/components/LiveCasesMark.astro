@@ -1,0 +1,49 @@
+---
+interface Props {
+  size?: 'sm' | 'md';
+}
+
+const { size = 'md' } = Astro.props;
+---
+
+<span class:list={['livecases-mark', size]} aria-hidden="true">
+  <span class="sq navy"></span>
+  <span class="sq gold"></span>
+</span>
+
+<style>
+  .livecases-mark {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .sm {
+    width: 36px;
+    height: 36px;
+  }
+
+  .md {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sq {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+  }
+
+  .navy {
+    top: 0;
+    left: 0;
+    background: var(--navy);
+  }
+
+  .gold {
+    right: 0;
+    bottom: 0;
+    background: var(--gold);
+    opacity: 0.92;
+  }
+</style>

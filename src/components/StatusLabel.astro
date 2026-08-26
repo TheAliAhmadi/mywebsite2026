@@ -1,0 +1,27 @@
+---
+interface Props {
+  tone?: 'gold' | 'navy';
+}
+
+const { tone = 'gold' } = Astro.props;
+---
+
+<p class:list={['status-label', tone]}>
+  <slot />
+</p>
+
+<style>
+  .status-label {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .gold {
+    color: var(--gold-deep);
+  }
+
+  .navy {
+    color: var(--navy);
+  }
+</style>

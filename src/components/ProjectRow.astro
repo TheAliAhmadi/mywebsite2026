@@ -1,0 +1,196 @@
+---
+import type { ResearchItem } from '../data/content';
+import ResearchIllustration from './ResearchIllustration.astro';
+import Icon from './Icon.astro';
+import StatusLabel from './StatusLabel.astro';
+import ResearchTag from './ResearchTag.astro';
+
+interface Props {
+  item: ResearchItem;
+  compact?: boolean;
+  anchor?: boolean;
+  showPresentationNote?: boolean;
+}
+
+const { item, compact = false, anchor = false, showPresentationNote = false } = Astro.props;
+const authors = item.authors.replace(/(Ahmadi,?\s*A\.?)/g, '<strong>$1</strong>');
+const statusTone = item.status.toLowerCase().includes('published') ? 'navy' : 'gold';
+---
+
+<article class:list={['project-row', { compact }]} id={anchor ? item.id : undefined}>
+  {
+    !compact && (
+      <div class="visual">
+        <ResearchIllustration kind={item.illustration} />
+        <span class="badge">
+          <Icon
+            name={item.illustration === 'surprise' ? 'chart' : item.illustration === 'positioning' ? 'target' : 'nodes'}
+            size={16}
+          />
+        </span>
+      </div>
+    )
+  }
+
+  <div class="center">
+    <h3>{item.title}</h3>
+    <p class="authors" set:html={authors} />
+    <p class="summary">{item.summary}</p>
+    {
+      showPresentationNote && item.presentationNote && (
+        <p class="presentation-note">{item.presentationNote}</p>
+      )
+    }
+    {
+      !compact && (
+        <div class="tags">
+          {item.tags.map((tag) => (
+            <ResearchTag>{tag}</ResearchTag>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="meta">
+    <StatusLabel tone={statusTone}>{item.status}</StatusLabel>
+    <p class="venue">{item.venue}</p>
+    {
+      item.href && (
+        <a class="arrow-link" href={item.href} target="_blank" rel="noopener noreferrer">
+          {item.linkLabel ?? 'Abstract'}
+          <Icon name="arrow" size={16} />
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .project-row {
+    display: grid;
+    grid-template-columns: 0.9fr 1.7fr 0.85fr;
+    gap: 1.75rem;
+    align-items: start;
+    padding: 1.75rem 0;
+    scroll-margin-top: 5.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-row.compact {
+    grid-template-columns: 1.7fr 0.7fr 0.4fr;
+    padding: 1.35rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-row.compact:last-child {
+    border-bottom: 0;
+  }
+
+  .visual {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-subtle);
+  }
+
+  .badge {
+    position: absolute;
+    left: 0.7rem;
+    bottom: 0.7rem;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--gold);
+  }
+
+  h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.55rem;
+    font-weight: 500;
+  }
+
+  .compact h3 {
+    font-size: 1.28rem;
+  }
+
+  .authors {
+    margin: 0 0 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+
+  .summary {
+    margin: 0 0 0.9rem;
+    color: var(--text);
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .presentation-note {
+    margin: -0.35rem 0 0.9rem;
+    color: var(--gold-deep);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .compact .summary {
+    margin-bottom: 0;
+    font-size: 0.92rem;
+  }
+
+  .compact .presentation-note {
+    margin: 0.45rem 0 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding-top: 0.15rem;
+  }
+
+  .venue {
+    margin: 0;
+    color: var(--navy);
+    font-family: var(--font-serif);
+    font-size: 0.98rem;
+    font-style: italic;
+  }
+
+  .meta .arrow-link {
+    margin-top: 0.85rem;
+  }
+
+  @media (max-width: 900px) {
+    .project-row,
+    .project-row.compact {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .meta {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.65rem 1rem;
+    }
+
+    .meta .arrow-link {
+      margin-top: 0;
+      margin-left: auto;
+    }
+  }
+</style>

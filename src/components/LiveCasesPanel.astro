@@ -1,0 +1,132 @@
+---
+import SectionEyebrow from './SectionEyebrow.astro';
+import LiveCasesMark from './LiveCasesMark.astro';
+import OutlineButton from './OutlineButton.astro';
+import Icon from './Icon.astro';
+import { SITE } from '../data/content';
+
+interface Props {
+  variant?: 'home' | 'teaching';
+}
+
+const { variant = 'teaching' } = Astro.props;
+---
+
+{
+  variant === 'home' ? (
+    <article class="home-panel surface-card">
+      <SectionEyebrow>AI Case Method</SectionEyebrow>
+      <div class="home-head">
+        <h3>LiveCases.org</h3>
+        <LiveCasesMark size="sm" />
+      </div>
+      <p>
+        LiveCases.org, an AI platform that turns case teaching into an
+        interactive conversation—so students uncover evidence rather than paste a case into a chatbot.
+      </p>
+      <a class="arrow-link" href={SITE.liveCasesHref} target="_blank" rel="noopener noreferrer">
+        Visit LiveCases.org
+        <Icon name="arrow" size={16} />
+      </a>
+    </article>
+  ) : (
+    <section class="teaching-panel">
+      <div class="container band">
+        <LiveCasesMark size="md" />
+        <div class="copy">
+          <SectionEyebrow>AI Case Method</SectionEyebrow>
+          <h2>Building the Next Generation of Cases</h2>
+          <p>
+            LiveCases.org is the platform behind the AI case method used in COMM401 and across Smith strategy courses.
+            Students interview AI characters who each hold part of the case, then defend recommendations with the
+            evidence they uncovered.
+          </p>
+        </div>
+        <div class="cta">
+          <p class="wordmark">LiveCases.org</p>
+          <OutlineButton href={SITE.liveCasesHref} external>
+            Visit LiveCases.org
+            <Icon name="external" size={16} slot="icon" />
+          </OutlineButton>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .home-panel {
+    padding: 1.7rem 1.6rem 1.5rem;
+  }
+
+  .home-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .home-head h3 {
+    margin: 0;
+    font-size: 1.7rem;
+  }
+
+  .home-panel p {
+    margin: 0 0 1.1rem;
+    color: var(--text-muted);
+    font-size: 0.96rem;
+  }
+
+  .teaching-panel {
+    padding: 0 0 4.5rem;
+  }
+
+  .band {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem 2rem;
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .copy h2 {
+    margin: 0 0 0.7rem;
+    font-size: 2rem;
+  }
+
+  .copy p {
+    margin: 0;
+    max-width: 42rem;
+    color: var(--text-muted);
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.9rem;
+  }
+
+  .wordmark {
+    margin: 0;
+    color: var(--navy);
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .band {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .cta {
+      align-items: flex-start;
+    }
+  }
+</style>
