@@ -77,7 +77,7 @@ export const researchItems: ResearchItem[] = [
     authors: 'Andrevski, G., Ahmadi, A., & Miller, D.',
     summary:
       'A theoretical framework for competitive surprise: a firm-initiated move that is unexpected to rivals and other market participants, and how such surprises shape response time, effectiveness, and advantage.',
-    status: 'R&R – Round 2',
+    status: 'R&R – Round 3',
     venue: 'Academy of Management Review',
     tags: ['Theory Development', 'Competitive Surprise'],
     categories: ['dissertation', 'under-review', 'presentation'],
