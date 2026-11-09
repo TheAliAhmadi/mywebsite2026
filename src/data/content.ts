@@ -10,7 +10,6 @@ export const SITE = {
   cvHref: '/AliAhmadi_CV.pdf',
   liveCasesHref: 'https://livecases.org',
   jbrPaperHref: 'https://doi.org/10.1016/j.jbusres.2025.115947',
-  workshopPdfHref: '/CodingWithAI_Workshop.pdf',
 };
 
 export const SOCIAL_LINKS = {
@@ -336,4 +335,64 @@ export const taCourses = [
   'Strategic Management (MBA, MBAS, MBUS, and EMBA with Cornell University)',
   'Corporate and Business Strategy',
   'Business for Good',
+];
+
+export interface Workshop {
+  id: string;
+  title: string;
+  tagline: string;
+  term: string;
+  audience: string;
+  summary: string;
+  outcomes: string[];
+  tools: string[];
+  slideCount: number;
+  repoHref?: string;
+  downloadName: string;
+  citation: string;
+}
+
+export const workshops: Workshop[] = [
+  {
+    id: 'coding-with-ai',
+    title: 'Coding with AI',
+    tagline: 'AI coding use cases for non-technical commerce students',
+    term: 'COMM401 · Fall 2025',
+    audience: 'Commerce students with no programming background',
+    summary:
+      'Students write working Python by describing what they want to an AI assistant, then learn to read, run, and question the code it returns. Each exercise starts from a real business data source.',
+    outcomes: [
+      'Write prompts that get working Python from an AI assistant',
+      'Pull economic and company data from public APIs (FRED, SEC EDGAR, Open Brewery DB)',
+      'Chart and map the results with Plotly, and scrape web pages with Beautiful Soup',
+      'Label text with a Hugging Face model and with the OpenAI API',
+      'Keep API keys safe and check AI-written code before trusting it',
+    ],
+    tools: ['Python', 'Google Colab', 'Plotly', 'Beautiful Soup', 'Hugging Face', 'OpenAI API'],
+    slideCount: 25,
+    downloadName: 'Ali Ahmadi - Coding with AI Workshop.pdf',
+    citation:
+      'Ahmadi, A. (2025). Coding with AI [Workshop slides]. Smith School of Business, Queen’s University. https://aliahmadi.site/teaching/',
+  },
+  {
+    id: 'from-news-to-data',
+    title: 'From News to Data',
+    tagline: 'Collect news with an API, label it with a model, and turn it into structured data with an LLM',
+    term: 'Research workshop · Fall 2026',
+    audience: 'Business researchers and graduate students',
+    summary:
+      'A full-day, hands-on workshop built around the Research Workbench, an open-source app that runs on each participant’s computer. Every step can show the Python code behind it, so participants leave with scripts they can reuse.',
+    outcomes: [
+      'Explain what an API is and why API keys matter',
+      'Turn a research question into a NewsAPI search',
+      'Classify articles with a Hugging Face model such as FinBERT-ESG',
+      'Design instructions and structured outputs so an LLM extracts the fields you need',
+      'Reuse the generated Python scripts on your own CSV or JSON data',
+    ],
+    tools: ['NewsAPI', 'Hugging Face', 'OpenAI API', 'Python', 'Research Workbench'],
+    slideCount: 71,
+    repoHref: 'https://github.com/TheAliAhmadi/News_Workshop',
+    downloadName: 'Ali Ahmadi - From News to Data Workshop.pdf',
+    citation: 'Ahmadi, A. (2026). From News to Data [Workshop slides]. https://aliahmadi.site/teaching/',
+  },
 ];

@@ -7,6 +7,12 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"kv_namespaces": [
+		{
+			"binding": "SLIDES",
+			"id": "5bcafeb9c48d4592a4fac3b2f218ce05"
+		}
+	],
 	"observability": {
 		"enabled": true
 	},

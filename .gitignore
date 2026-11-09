@@ -208,3 +208,6 @@ __pycache__/
 *$py.class
 .ipynb_checkpoints/
 .review/
+
+# Source PowerPoint decks (private, not published)
+workshop-sources/

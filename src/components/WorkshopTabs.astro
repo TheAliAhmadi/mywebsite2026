@@ -1,0 +1,591 @@
+---
+import Icon from './Icon.astro';
+import SectionEyebrow from './SectionEyebrow.astro';
+import { workshops } from '../data/content';
+---
+
+<section class="workshops" id="workshops">
+  <div class="container">
+    <header class="intro">
+      <SectionEyebrow>Workshops</SectionEyebrow>
+      <h2>Hands-on workshops</h2>
+      <p>
+        Two workshops that teach non-programmers to work with data and AI by doing. The slides are free for teaching and
+        research. Request a copy below with your university email.
+      </p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Workshops" data-workshop-tabs>
+      {
+        workshops.map((workshop, i) => (
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            id={`tab-${workshop.id}`}
+            aria-controls={`panel-${workshop.id}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            data-workshop={workshop.id}
+          >
+            <span class="tab-title">{workshop.title}</span>
+            <span class="tab-term">{workshop.term}</span>
+          </button>
+        ))
+      }
+    </div>
+
+    {
+      workshops.map((workshop, i) => (
+        <article
+          class="panel"
+          role="tabpanel"
+          id={`panel-${workshop.id}`}
+          aria-labelledby={`tab-${workshop.id}`}
+          tabindex="0"
+          hidden={i !== 0}
+        >
+          <div class="panel-copy">
+            <p class="tagline">{workshop.tagline}</p>
+            <dl class="meta">
+              <div>
+                <dt>Audience</dt>
+                <dd>{workshop.audience}</dd>
+              </div>
+              <div>
+                <dt>Slides</dt>
+                <dd>{workshop.slideCount} pages, PDF</dd>
+              </div>
+            </dl>
+            <p>{workshop.summary}</p>
+            <h3>Participants learn to</h3>
+            <ul class="checks">
+              {workshop.outcomes.map((outcome) => (
+                <li>
+                  <Icon name="check" size={18} />
+                  <span>{outcome}</span>
+                </li>
+              ))}
+            </ul>
+            <ul class="tools" aria-label="Tools used">
+              {workshop.tools.map((tool) => (
+                <li>{tool}</li>
+              ))}
+            </ul>
+            {workshop.repoHref && (
+              <a class="arrow-link" href={workshop.repoHref} target="_blank" rel="noopener noreferrer">
+                Workshop code on GitHub
+                <Icon name="external" size={16} />
+              </a>
+            )}
+          </div>
+          <figure class="cover">
+            <img
+              src={`/images/workshops/${workshop.id}.jpg`}
+              alt={`Title slide of the ${workshop.title} workshop`}
+              width="960"
+              height="540"
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          </figure>
+        </article>
+      ))
+    }
+
+    <div class="download surface-card">
+      <div class="download-intro">
+        <h3>Request the slides</h3>
+        <p>
+          Tell me who you are and how you plan to use them. The PDF downloads straight away; I only use these details
+          to see where the material is being used.
+        </p>
+        <div class="notice" role="note">
+          <strong>Please cite when reusing.</strong>
+          <span>
+            These slides are the work of Ali Ahmadi. Do not use, adapt, or redistribute them without referencing the
+            source:
+          </span>
+          <cite data-citation>{workshops[0].citation}</cite>
+        </div>
+      </div>
+
+      <form action="/api/slides" method="POST" data-slides-form novalidate>
+        <label>
+          Workshop
+          <select name="workshop" required data-workshop-select>
+            {workshops.map((workshop) => (
+              <option value={workshop.id} data-citation={workshop.citation}>
+                {workshop.title}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          University email
+          <input type="email" name="email" required autocomplete="email" placeholder="name@university.edu" />
+        </label>
+        <label>
+          Institution
+          <input type="text" name="institution" required autocomplete="organization" />
+        </label>
+        <label>
+          How will you use the slides?
+          <textarea
+            name="purpose"
+            rows="3"
+            required
+            minlength="15"
+            placeholder="For example: a guest lecture in my undergraduate analytics course"></textarea>
+        </label>
+        <label class="hp" aria-hidden="true">
+          Website
+          <input type="text" name="website" tabindex="-1" autocomplete="off" />
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="cite" value="yes" required />
+          <span>I will credit Ali Ahmadi and reference these slides whenever I use or adapt them.</span>
+        </label>
+        <button class="btn-primary" type="submit">
+          <span>Download slides</span>
+          <Icon name="arrow" size={16} />
+        </button>
+        <p class="status" role="status" aria-live="polite" data-status></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-workshop-tabs] [role="tab"]')];
+  const select = document.querySelector<HTMLSelectElement>('[data-workshop-select]');
+  const citation = document.querySelector<HTMLElement>('[data-citation]');
+
+  function showCitation() {
+    const option = select?.selectedOptions[0];
+    if (citation && option?.dataset.citation) citation.textContent = option.dataset.citation;
+  }
+
+  function activate(tab: HTMLButtonElement, focus = false) {
+    for (const other of tabs) {
+      const selected = other === tab;
+      other.setAttribute('aria-selected', String(selected));
+      other.tabIndex = selected ? 0 : -1;
+      const panel = document.getElementById(other.getAttribute('aria-controls') ?? '');
+      if (panel) panel.hidden = !selected;
+    }
+    if (focus) tab.focus();
+    if (select && tab.dataset.workshop) {
+      select.value = tab.dataset.workshop;
+      showCitation();
+    }
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => activate(tab));
+    tab.addEventListener('keydown', (event) => {
+      const moves: Record<string, number> = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 };
+      if (!(event.key in moves)) return;
+      event.preventDefault();
+      activate(tabs[(moves[event.key] + tabs.length) % tabs.length], true);
+    });
+  });
+
+  select?.addEventListener('change', () => {
+    const tab = tabs.find((item) => item.dataset.workshop === select.value);
+    if (tab) activate(tab);
+  });
+
+  const form = document.querySelector<HTMLFormElement>('[data-slides-form]');
+  const status = document.querySelector<HTMLElement>('[data-status]');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!status) return;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (button) button.disabled = true;
+    status.className = 'status';
+    status.textContent = 'Preparing your download…';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { accept: 'application/json' },
+      });
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error ?? 'Something went wrong. Please try again.');
+      }
+
+      const filename =
+        response.headers.get('content-disposition')?.match(/filename="([^"]+)"/)?.[1] ?? 'Ali Ahmadi - Workshop slides.pdf';
+      const url = URL.createObjectURL(await response.blob());
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+
+      status.className = 'status success';
+      status.textContent = 'Thank you. Your download has started. Please remember to cite the slides when you use them.';
+    } catch (error) {
+      status.className = 'status error';
+      status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+
+  showCitation();
+</script>
+
+<style>
+  .workshops {
+    padding: 4.5rem 0 4rem;
+  }
+
+  .intro {
+    max-width: 44rem;
+    margin-bottom: 2rem;
+  }
+
+  .intro h2 {
+    margin: 0 0 0.8rem;
+    font-size: 2.3rem;
+  }
+
+  .intro p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    margin-bottom: -1px;
+    padding: 0.85rem 1.25rem 0.8rem;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    text-align: left;
+    cursor: pointer;
+    transition: color var(--ease), border-color var(--ease);
+  }
+
+  .tab:hover {
+    color: var(--navy);
+  }
+
+  .tab[aria-selected='true'] {
+    border-bottom-color: var(--gold);
+    color: var(--navy);
+  }
+
+  .tab:focus-visible,
+  .panel:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .tab-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .tab-term {
+    color: var(--text-soft);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 2.75rem;
+    align-items: start;
+    padding: 2rem 0 2.5rem;
+  }
+
+  .panel[hidden] {
+    display: none;
+  }
+
+  .panel-copy > p {
+    margin: 0 0 1.1rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .panel-copy > .tagline {
+    color: var(--navy);
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    line-height: 1.35;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 2rem;
+    margin: 0 0 1.1rem;
+  }
+
+  .meta dt {
+    color: var(--text-soft);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .meta dd {
+    margin: 0.15rem 0 0;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .panel h3 {
+    margin: 1.4rem 0 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .checks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .checks li {
+    display: flex;
+    gap: 0.7rem;
+    margin: 0 0 0.7rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .checks :global(.icon) {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    color: var(--gold);
+  }
+
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 1.2rem 0 1.4rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tools li {
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .cover {
+    margin: 0;
+  }
+
+  .cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .download {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 2.5rem;
+    padding: 2rem;
+  }
+
+  .download h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.6rem;
+  }
+
+  .download-intro > p {
+    margin: 0 0 1.25rem;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .notice {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1rem 1.1rem;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: var(--bg-warm);
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .notice strong {
+    color: var(--navy);
+  }
+
+  .notice cite {
+    color: var(--navy-soft);
+    font-style: normal;
+    overflow-wrap: anywhere;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: var(--navy);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  input[type='email'],
+  input[type='text'],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+    background: var(--white);
+  }
+
+  .consent {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .consent input {
+    flex-shrink: 0;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-top: 0.2rem;
+    accent-color: var(--navy);
+  }
+
+  .hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .btn-primary {
+    align-self: flex-start;
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+
+  .status {
+    min-height: 1.4em;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  .status.success {
+    color: #1f6b3a;
+  }
+
+  .status.error {
+    color: #a3261b;
+  }
+
+  @media (max-width: 900px) {
+    .panel,
+    .download {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .cover {
+      max-width: 32rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .tab {
+      padding-inline: 0.5rem;
+    }
+
+    .tab-title {
+      font-size: 1.15rem;
+    }
+
+    .tab-term {
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    .download {
+      padding: 1.35rem;
+    }
+
+    .intro h2 {
+      font-size: 1.9rem;
+    }
+  }
+</style>

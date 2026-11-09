@@ -8,7 +8,8 @@ import StatItem from '../components/StatItem.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import LiveCasesPanel from '../components/LiveCasesPanel.astro';
 import TeachingIllustration from '../components/TeachingIllustration.astro';
-import { SITE, teachingStats, testimonials, taCourses } from '../data/content';
+import WorkshopTabs from '../components/WorkshopTabs.astro';
+import { teachingStats, testimonials, taCourses } from '../data/content';
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -116,10 +117,11 @@ import { SITE_TITLE } from '../consts';
           through LiveCases.org.
         </p>
         <p>
-          I also teach a hands-on workshop, Coding with AI, for commerce students with no programming background.
+          I also run hands-on workshops that teach students and researchers with no programming background to work
+          with data and AI.
         </p>
-        <a class="arrow-link" href={SITE.workshopPdfHref} download>
-          Download workshop slides
+        <a class="arrow-link" href="#workshops">
+          Explore the workshops
           <Icon name="arrow" size={16} />
         </a>
       </div>
@@ -132,6 +134,8 @@ import { SITE_TITLE } from '../consts';
       </div>
     </div>
   </section>
+
+  <WorkshopTabs />
 
   <section class="feedback" id="feedback">
     <div class="container">
