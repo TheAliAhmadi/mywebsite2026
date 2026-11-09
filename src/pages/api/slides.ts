@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { workshops } from '../../data/content';
+import { downloaderRoles, workshops } from '../../data/content';
 import { isUniversityEmail } from '../../lib/university-email';
 
 export const prerender = false;
@@ -8,7 +8,6 @@ export const prerender = false;
 // The form needs reCAPTCHA disabled, because the submission comes from the server.
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjqrenn';
 const LOG_PREFIX = 'log/';
-const MIN_PURPOSE_LENGTH = 15;
 
 function field(form: FormData, name: string): string {
   const value = form.get(name);
@@ -60,8 +59,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   const workshop = workshops.find((item) => item.id === field(form, 'workshop'));
   const email = field(form, 'email').toLowerCase();
-  const institution = field(form, 'institution');
-  const purpose = field(form, 'purpose');
+  const role = field(form, 'role');
 
   if (!workshop) return failure(request, 400, 'Please choose a workshop.');
   if (!isUniversityEmail(email)) {
@@ -71,12 +69,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
       'Please use your university or college email address. If yours is not recognised, email Ali.Ahmadi@queensu.ca.',
     );
   }
-  if (institution.length < 2) return failure(request, 400, 'Please enter your institution.');
-  if (purpose.length < MIN_PURPOSE_LENGTH) {
-    return failure(request, 400, 'Please tell me a little more about how you plan to use the slides.');
-  }
-  if (form.get('cite') !== 'yes') {
-    return failure(request, 400, 'Please agree to cite Ali Ahmadi when you use the slides.');
+  if (!downloaderRoles.includes(role)) {
+    return failure(request, 400, 'Please tell me whether you are an undergraduate student, graduate student, or professor.');
   }
 
   const { env, ctx } = locals.runtime;
@@ -87,9 +81,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     requested_at: new Date().toISOString(),
     workshop: workshop.title,
     email,
-    institution,
-    purpose,
-    cite_agreement: 'yes',
+    role,
     country: String(locals.runtime.cf?.country ?? ''),
   };
   // Logging finishes after the response so it never delays or blocks a valid download.

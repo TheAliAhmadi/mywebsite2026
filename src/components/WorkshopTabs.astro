@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import SectionEyebrow from './SectionEyebrow.astro';
-import { workshops } from '../data/content';
+import { downloaderRoles, workshops } from '../data/content';
 ---
 
 <section class="workshops" id="workshops">
@@ -11,7 +11,7 @@ import { workshops } from '../data/content';
       <h2>Hands-on workshops</h2>
       <p>
         Two workshops that teach non-programmers to work with data and AI by doing. The slides are free for teaching and
-        research. Request a copy below with your university email.
+        research. Download a copy below with your university email.
       </p>
     </header>
 
@@ -47,16 +47,6 @@ import { workshops } from '../data/content';
         >
           <div class="panel-copy">
             <p class="tagline">{workshop.tagline}</p>
-            <dl class="meta">
-              <div>
-                <dt>Audience</dt>
-                <dd>{workshop.audience}</dd>
-              </div>
-              <div>
-                <dt>Slides</dt>
-                <dd>{workshop.slideCount} pages, PDF</dd>
-              </div>
-            </dl>
             <p>{workshop.summary}</p>
             <h3>Participants learn to</h3>
             <ul class="checks">
@@ -94,30 +84,18 @@ import { workshops } from '../data/content';
 
     <div class="download surface-card">
       <div class="download-intro">
-        <h3>Request the slides</h3>
-        <p>
-          Tell me who you are and how you plan to use them. The PDF downloads straight away; I only use these details
-          to see where the material is being used.
+        <h3>Download the slides</h3>
+        <p class="notice" role="note">
+          <strong>Please cite when reusing.</strong> Do not use, adapt, or redistribute them without referencing the
+          source: <a href="https://aliahmadi.site/teaching/">https://aliahmadi.site/teaching/</a>
         </p>
-        <div class="notice" role="note">
-          <strong>Please cite when reusing.</strong>
-          <span>
-            These slides are the work of Ali Ahmadi. Do not use, adapt, or redistribute them without referencing the
-            source:
-          </span>
-          <cite data-citation>{workshops[0].citation}</cite>
-        </div>
       </div>
 
       <form action="/api/slides" method="POST" data-slides-form novalidate>
         <label>
           Workshop
           <select name="workshop" required data-workshop-select>
-            {workshops.map((workshop) => (
-              <option value={workshop.id} data-citation={workshop.citation}>
-                {workshop.title}
-              </option>
-            ))}
+            {workshops.map((workshop) => <option value={workshop.id}>{workshop.title}</option>)}
           </select>
         </label>
         <label>
@@ -125,25 +103,15 @@ import { workshops } from '../data/content';
           <input type="email" name="email" required autocomplete="email" placeholder="name@university.edu" />
         </label>
         <label>
-          Institution
-          <input type="text" name="institution" required autocomplete="organization" />
-        </label>
-        <label>
-          How will you use the slides?
-          <textarea
-            name="purpose"
-            rows="3"
-            required
-            minlength="15"
-            placeholder="For example: a guest lecture in my undergraduate analytics course"></textarea>
+          I am a
+          <select name="role" required>
+            <option value="" selected disabled>Choose one</option>
+            {downloaderRoles.map((role) => <option value={role}>{role}</option>)}
+          </select>
         </label>
         <label class="hp" aria-hidden="true">
           Website
           <input type="text" name="website" tabindex="-1" autocomplete="off" />
-        </label>
-        <label class="consent">
-          <input type="checkbox" name="cite" value="yes" required />
-          <span>I will credit Ali Ahmadi and reference these slides whenever I use or adapt them.</span>
         </label>
         <button class="btn-primary" type="submit">
           <span>Download slides</span>
@@ -158,13 +126,6 @@ import { workshops } from '../data/content';
 <script>
   const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-workshop-tabs] [role="tab"]')];
   const select = document.querySelector<HTMLSelectElement>('[data-workshop-select]');
-  const citation = document.querySelector<HTMLElement>('[data-citation]');
-
-  function showCitation() {
-    const option = select?.selectedOptions[0];
-    if (citation && option?.dataset.citation) citation.textContent = option.dataset.citation;
-  }
-
   function activate(tab: HTMLButtonElement, focus = false) {
     for (const other of tabs) {
       const selected = other === tab;
@@ -174,10 +135,7 @@ import { workshops } from '../data/content';
       if (panel) panel.hidden = !selected;
     }
     if (focus) tab.focus();
-    if (select && tab.dataset.workshop) {
-      select.value = tab.dataset.workshop;
-      showCitation();
-    }
+    if (select && tab.dataset.workshop) select.value = tab.dataset.workshop;
   }
 
   tabs.forEach((tab, i) => {
@@ -234,7 +192,7 @@ import { workshops } from '../data/content';
       setTimeout(() => URL.revokeObjectURL(url), 60_000);
 
       status.className = 'status success';
-      status.textContent = 'Thank you. Your download has started. Please remember to cite the slides when you use them.';
+      status.textContent = 'Thank you. Your download has started.';
     } catch (error) {
       status.className = 'status error';
       status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
@@ -243,7 +201,6 @@ import { workshops } from '../data/content';
     }
   });
 
-  showCitation();
 </script>
 
 <style>
@@ -344,27 +301,6 @@ import { workshops } from '../data/content';
     line-height: 1.35;
   }
 
-  .meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 2rem;
-    margin: 0 0 1.1rem;
-  }
-
-  .meta dt {
-    color: var(--text-soft);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .meta dd {
-    margin: 0.15rem 0 0;
-    color: var(--navy);
-    font-weight: 600;
-  }
-
   .panel h3 {
     margin: 1.4rem 0 0.75rem;
     font-size: 1.25rem;
@@ -433,16 +369,8 @@ import { workshops } from '../data/content';
     font-size: 1.6rem;
   }
 
-  .download-intro > p {
-    margin: 0 0 1.25rem;
-    color: var(--text);
-    line-height: 1.65;
-  }
-
   .notice {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
+    margin: 0;
     padding: 1rem 1.1rem;
     border-left: 3px solid var(--gold);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -456,9 +384,9 @@ import { workshops } from '../data/content';
     color: var(--navy);
   }
 
-  .notice cite {
+  .notice a {
     color: var(--navy-soft);
-    font-style: normal;
+    text-decoration: underline;
     overflow-wrap: anywhere;
   }
 
@@ -478,9 +406,7 @@ import { workshops } from '../data/content';
   }
 
   input[type='email'],
-  input[type='text'],
-  select,
-  textarea {
+  select {
     width: 100%;
     padding: 0.75rem 0.85rem;
     border: 1px solid var(--border);
@@ -493,28 +419,10 @@ import { workshops } from '../data/content';
   }
 
   input:focus,
-  select:focus,
-  textarea:focus {
+  select:focus {
     outline: 2px solid var(--gold);
     outline-offset: 1px;
     background: var(--white);
-  }
-
-  .consent {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 0.6rem;
-    color: var(--text);
-    font-weight: 400;
-    line-height: 1.5;
-  }
-
-  .consent input {
-    flex-shrink: 0;
-    width: 1.05rem;
-    height: 1.05rem;
-    margin-top: 0.2rem;
-    accent-color: var(--navy);
   }
 
   .hp {
