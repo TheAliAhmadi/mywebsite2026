@@ -4,9 +4,9 @@ import { isUniversityEmail } from '../../lib/university-email';
 
 export const prerender = false;
 
-// Each download request is stored in KV under log/ and, when a Formspree form is configured, emailed.
-// The form needs reCAPTCHA disabled, because the submission comes from the server.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjqrenn';
+// Each download request is stored in KV under log/ and emailed through the "Slide downloads" Formspree form.
+// That form must keep reCAPTCHA disabled, because the submission comes from the server.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjyyqkjv';
 const LOG_PREFIX = 'log/';
 
 function field(form: FormData, name: string): string {
